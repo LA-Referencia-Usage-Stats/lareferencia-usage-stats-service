@@ -7,3 +7,5 @@ uvicorn[standard]
 gunicorn
 SQLAlchemy==1.4.34 
 flask_appbuilder
+marshmallow<4
+PyMySQL==1.0.2
