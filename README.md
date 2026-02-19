@@ -50,7 +50,12 @@ flowchart LR
 - `OPENSEARCH`: host, puerto, SSL, usuario/clave.
 - `USAGE_STATS_DB`: URI SQLAlchemy para metadata de fuentes.
 - `USAGE_STATS_INDEX`: `INDEX_PREFIX`.
-- `CORS`: archivo de orígenes permitidos.
+- `CORS`:
+  - `ENABLED=true` habilita CORS.
+  - si `ENABLED` no existe o es `false`, la API arranca sin middleware CORS.
+  - con CORS habilitado, usa `ALLOWED_ORIGINS` (csv) o `FILENAME`.
+  - `TRACK_ORIGINS=true` guarda los `Origin` recibidos (deduplicados) en `origins.txt`.
+  - `TRACK_ORIGINS_FILE` permite cambiar el archivo (default: `origins.txt`).
 
 ## Ejecución
 
