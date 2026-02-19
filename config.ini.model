@@ -2,6 +2,7 @@
 HOST = elk.lareferencia.info
 PORT = 443
 SSL = True
+BASIC_AUTH_ENABLED = false
 USER = lareferencia
 PASSWORD = lareferencia
 

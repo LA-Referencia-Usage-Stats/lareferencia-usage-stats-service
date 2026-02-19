@@ -148,14 +148,21 @@ try:
     host = config["OPENSEARCH"]["HOST"]
     port = int(config["OPENSEARCH"]["PORT"])
     is_ssl = str(config["OPENSEARCH"]["SSL"]).lower() == "true"
+    basic_auth_enabled = _parse_bool(config.get("OPENSEARCH", "BASIC_AUTH_ENABLED", fallback="false"))
     auth = (config["OPENSEARCH"]["USER"], config["OPENSEARCH"]["PASSWORD"])
 
-    client = OpenSearch(
-        hosts=[{"host": host, "port": port}],
-        http_compress=True,
-        use_ssl=is_ssl,
-        http_auth=auth,
-    )
+    client_kwargs = {
+        "hosts": [{"host": host, "port": port}],
+        "http_compress": True,
+        "use_ssl": is_ssl,
+    }
+    if basic_auth_enabled:
+        client_kwargs["http_auth"] = auth
+        logger.info("OpenSearch basic auth enabled")
+    else:
+        logger.info("OpenSearch basic auth disabled")
+
+    client = OpenSearch(**client_kwargs)
 
     logger.info("Connected to OpenSearch")
     logger.info(client.info())
