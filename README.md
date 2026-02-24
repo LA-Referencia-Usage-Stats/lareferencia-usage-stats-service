@@ -48,7 +48,7 @@ flowchart LR
 `config.ini.model` define:
 
 - `OPENSEARCH`: host, puerto, SSL, usuario/clave.
-- `USAGE_STATS_DB`: URI SQLAlchemy para metadata de fuentes.
+- `USAGE_STATS_DB`: conexión de metadata en formato por componentes (`HOST`, `PORT`, `USERNAME`, `PASSWORD`, `DATABASE`).
 - `USAGE_STATS_INDEX`: `INDEX_PREFIX`.
 - `CORS`:
   - `ENABLED=true` habilita CORS.

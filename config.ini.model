@@ -7,7 +7,11 @@ USER = lareferencia
 PASSWORD = lareferencia
 
 [USAGE_STATS_DB]
-SQLALCHEMY_DATABASE_URI = mysql+pymysql://user:pass@server/lareferencia-usage-stats-db?charset=utf8mb4
+HOST = usage-db
+PORT = 3306
+USERNAME = stats
+PASSWORD = stats
+DATABASE = lareferencia_usage_stats
 HELPER_REFRESH_SECONDS = 300
 
 [USAGE_STATS_INDEX]
@@ -21,7 +25,6 @@ INDEX_PREFIX = usage-stats
 # TRACK_ORIGINS = true
 # TRACK_ORIGINS_FILE = origins.txt
 FILENAME = cors.txt
-
 
 
 
